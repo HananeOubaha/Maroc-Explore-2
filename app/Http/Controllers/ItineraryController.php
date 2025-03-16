@@ -109,36 +109,22 @@ public function getAllItineraries()
         'itineraries' => $itineraries
     ]);
 }
-use Illuminate\Http\Request;
-use App\Models\Itinerary;
-
 public function searchItineraries(Request $request)
 {
-    try {
-        $query = Itinerary::query();
+    $title = $request->query('title'); // Récupère le titre dans l'URL
 
-        if ($request->has('title') && !empty($request->title)) {
-            $query->where('title', 'like', '%' . $request->title . '%');
-        }
-
-        if ($request->has('destination') && !empty($request->destination)) {
-            $query->whereHas('destinations', function ($q) use ($request) {
-                $q->where('name', 'like', '%' . $request->destination . '%');
-            });
-        }
-
-        $itineraries = $query->with('destinations')->get();
-
-        return response()->json([
-            'success' => true,
-            'itineraries' => $itineraries
-        ], 200);
-
-    } catch (\Exception $e) {
-        return response()->json([
-            'success' => false,
-            'message' => 'Erreur interne',
-            'error' => $e->getMessage()
-        ], 500);
+    if (!$title) {
+        return response()->json(['error' => 'Veuillez fournir un titre'], 400);
     }
+
+    $itineraries = Itinerary::where('title', 'LIKE', "%$title%")->get();
+
+    if ($itineraries->isEmpty()) {
+        return response()->json(['message' => 'Aucun itinéraire trouvé'], 404);
+    }
+
+    return response()->json($itineraries, 200);
+}
+
+
 }

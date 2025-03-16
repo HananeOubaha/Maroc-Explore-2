@@ -49,4 +49,8 @@ public function destinations()
 {
     return $this->hasMany(Destination::class);
 }
+public function favoritedByUsers()
+{
+    return $this->hasMany(Favorite::class);
+}
 }

@@ -1,0 +1,306 @@
+{
+	"info": {
+		"_postman_id": "48a76fdf-fb7a-4945-b0b2-82eecd77c51b",
+		"name": "Itinerary",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43011578"
+	},
+	"item": [
+		{
+			"name": "itinerary",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "2|bzfK2I2Z9GITFiGqBsX9tHNszA4NTz0AVKriNG8Nfdd87476",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Road Trip au Sud\",\r\n    \"category\": \"Montagne\",\r\n    \"duration\": 5,\r\n    \"image\": \"https://exemple.com/image.jpg\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/itineraries",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"itineraries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "destinations",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3|Bi1lTV3fNaWZjcFdlwPUZDGSJDY8i0MOlqir4mk74bf1899a",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"destinations\": [\r\n        {\r\n            \"name\": \"Marrakech\",\r\n            \"accommodation\": \"Hotel X\",\r\n            \"places_to_visit\": \"Jardin Majorelle, Place Jemaa el-Fna\",\r\n            \"activities\": \"Visite des souks, promenade dans la médina\",\r\n            \"foods_to_try\": \"Tajine, Couscous\"\r\n        },\r\n        {\r\n            \"name\": \"Fès\",\r\n            \"accommodation\": \"Riad Y\",\r\n            \"places_to_visit\": \"Medersa Bou Inania, Palais Royal\",\r\n            \"activities\": \"Visite des marchés, découverte de la médina\",\r\n            \"foods_to_try\": \"Pastilla, Harira\"\r\n        }\r\n    ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/itineraries/1/destinations",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"itineraries",
+						"1",
+						"destinations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "afficher itinerary",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "4|YS9krf27wB7E094bHj59GPk7VTbxJJicReDyP5q95ee1bb24",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"itineraries\": [\r\n        {\r\n            \"id\": 1,\r\n            \"user_id\": 2,\r\n            \"title\": \"Voyage au Sud\",\r\n            \"description\": \"Exploration du désert et des kasbahs\",\r\n            \"destinations\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"name\": \"Marrakech\",\r\n                    \"accommodation\": \"Riad XYZ\",\r\n                    \"places_to_visit\": \"Place Jemaa el-Fna, Jardin Majorelle\"\r\n                },\r\n                {\r\n                    \"id\": 2,\r\n                    \"name\": \"Ouarzazate\",\r\n                    \"accommodation\": \"Kasbah Hotel\",\r\n                    \"places_to_visit\": \"Studios de cinéma, Kasbah Ait Benhaddou\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/itineraries",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"itineraries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recherche itinéraire",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "6|tDri93SwB7T7m20EfA5J5hvbPMtoImpe5H3Atpho748f321f",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/itineraries/search?title=Road%20Trip%20au%20Sud",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"itineraries",
+						"search"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Road%20Trip%20au%20Sud"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Favoris",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7|viyfBWx9VGBK9gSvFBPHcxSXsNGN2YamvAwgQqwNc5f467c2",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/favorites/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"favorites",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "voir favoris",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9|sdeuV5xKr0isE9BMXTDTngNRUV6gu3ETSRjX8IAW20fa3a01",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/favorites",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"favorites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete favoris",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "10|GnNjUDcVuFb3OKyPMPY04KBxl0MWlfsafJj19iP621daed7a",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/favorites/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"favorites",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
